@@ -1,18 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { FooterComponenet } from "../shared_pages/FooterComponenet";
 import { HeaderComponenet } from "../shared_pages/HeaderComponenet";
- 
+
 import { SidebarComponenet } from "./SidebarComponenet";
 import { MainComponenet } from "./mainComponenet";
- 
- 
 
-
-export function DashboardComponenet(){
-    return (
+export function DashboardComponenet() {
+  return (
     <div className="flex flex-col min-h-screen">
       {/* Header ثابت */}
-       <HeaderComponenet/>
+      <HeaderComponenet />
 
       {/* Body: Sidebar + Main */}
       <div className="flex flex-1">

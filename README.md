@@ -60,7 +60,6 @@ GET https://api.open-meteo.com/v1/forecast
 &longitude={longitude}
 &current_weather=true
 
-
 The API is called when creating a task.
 
 Why Open-Meteo?
@@ -94,10 +93,10 @@ Example Stored Data
 Instead of storing raw API response:
 
 "weather": {
-  "temperature": 26.4,
-  "windspeed": 14.2,
-  "weatherCode": 3,
-  "isExtreme": false
+"temperature": 26.4,
+"windspeed": 14.2,
+"weatherCode": 3,
+"isExtreme": false
 }
 
 🧩 Business Logic Applied
@@ -144,47 +143,47 @@ Owner-based task filtering
 
 📦 Task Model
 {
-  "title": "string",
-  "description": "string",
-  "status": "todo | doing | done",
-  "priority": "low | medium | high",
-  "createdAt": "date",
-  "weather": {
-    "temperature": "number",
-    "windspeed": "number",
-    "weatherCode": "number",
-    "isExtreme": "boolean"
-  },
-  "user": "ObjectId"
+"title": "string",
+"description": "string",
+"status": "todo | doing | done",
+"priority": "low | medium | high",
+"createdAt": "date",
+"weather": {
+"temperature": "number",
+"windspeed": "number",
+"weatherCode": "number",
+"isExtreme": "boolean"
+},
+"user": "ObjectId"
 }
 
 🏗 Backend Architecture
 backend/
 │
 ├── src/
-│   ├── config/
-│   │   └── db.js
-│   │
-│   ├── controllers/
-│   │   ├── auth.controller.js
-│   │   └── task.controller.js
-│   │
-│   ├── services/
-│   │   └── weather.service.js
-│   │
-│   ├── models/
-│   │   ├── user.model.js
-│   │   └── task.model.js
-│   │
-│   ├── middleware/
-│   │   ├── auth.middleware.js
-│   │   └── error.middleware.js
-│   │
-│   ├── routes/
-│   │   ├── auth.routes.js
-│   │   └── task.routes.js
-│   │
-│   └── app.js
+│ ├── config/
+│ │ └── db.js
+│ │
+│ ├── controllers/
+│ │ ├── auth.controller.js
+│ │ └── task.controller.js
+│ │
+│ ├── services/
+│ │ └── weather.service.js
+│ │
+│ ├── models/
+│ │ ├── user.model.js
+│ │ └── task.model.js
+│ │
+│ ├── middleware/
+│ │ ├── auth.middleware.js
+│ │ └── error.middleware.js
+│ │
+│ ├── routes/
+│ │ ├── auth.routes.js
+│ │ └── task.routes.js
+│ │
+│ └── app.js
 │
 └── server.js
 
@@ -211,15 +210,15 @@ Maintainable
 frontend/
 │
 ├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── context/
-│   │   └── AuthContext.jsx
-│   ├── services/
-│   │   └── api.js
-│   ├── routes/
-│   │   └── ProtectedRoute.jsx
-│   └── App.jsx
+│ ├── components/
+│ ├── pages/
+│ ├── context/
+│ │ └── AuthContext.jsx
+│ ├── services/
+│ │ └── api.js
+│ ├── routes/
+│ │ └── ProtectedRoute.jsx
+│ └── App.jsx
 
 Frontend Features
 
@@ -236,12 +235,12 @@ Predictable data flow
 Basic state management
 
 🧪 Error Handling Strategy
-Case	Status Code
-Validation error	400
-Unauthorized	401
-Forbidden	403
-Not Found	404
-Server Error	500
+Case Status Code
+Validation error 400
+Unauthorized 401
+Forbidden 403
+Not Found 404
+Server Error 500
 External API Failure Handling
 
 If weather API:
@@ -300,13 +299,11 @@ cd smart-task-insights-dashboard
 cd backend
 npm install
 
-
 Create .env file:
 
 PORT=5000
 MONGO_URI=your_mongodb_connection
 JWT_SECRET=your_secret_key
-
 
 Run backend:
 
@@ -316,8 +313,6 @@ npm run dev
 cd frontend
 npm install
 npm start
-
-
 
 👨‍💻 Author
 

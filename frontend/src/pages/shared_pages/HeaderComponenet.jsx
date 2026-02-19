@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-
+import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
- 
 
+export function HeaderComponenet() {
+  const [isOpen, setIsOpen] = useState(false);
 
-export function HeaderComponenet(){
+  const { token, logout } = useAuth();
 
-      const [isOpen, setIsOpen] = useState(false);
-
-       const { token, logout } = useAuth();
-
-      
-return(
+  return (
     <header className="bg-slate-700 text-white shadow-md">
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
@@ -20,11 +16,14 @@ return(
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6">
-          <a href="#home" className="hover:text-blue-400">Home</a>
-          <a href="#about" className="hover:text-blue-400">About</a>
-          <a href="#services" className="hover:text-blue-400">Services</a>
-          <a href="#contact" className="hover:text-blue-400">Contact</a>
-            {token && (
+          <Link to="/dashboard" className="hover:text-blue-400">
+            Home
+          </Link>
+          <Link to="/dashboard/about" className="hover:text-blue-400">
+            About
+          </Link>
+
+          {token && (
             <button
               onClick={logout}
               className="ml-4 bg-red-600 px-3 py-1 rounded hover:bg-red-500 transition"
@@ -48,14 +47,29 @@ return(
 
       {/* Mobile Nav */}
       {isOpen && (
-        <nav className="md:hidden bg-blue-500 px-4 pb-4 space-y-2">
-          <a href="#home" className="block hover:text-blue-400">Home</a>
-          <a href="#about" className="block hover:text-blue-400">About</a>
-          <a href="#services" className="block hover:text-blue-400">Services</a>
-          <a href="#contact" className="block hover:text-blue-400">Contact</a>
+        <nav className="md:hidden bg-slate-700 px-4 pb-4 space-y-2">
+          <a href="#home" className="block hover:text-blue-400">
+            Home
+          </a>
+          <a href="#about" className="block hover:text-blue-400">
+            About
+          </a>
+          {/* <a href="#services" className="block hover:text-blue-400">
+            Services
+          </a>
+          <a href="#contact" className="block hover:text-blue-400">
+            Contact
+          </a> */}
+          {token && (
+            <button
+              onClick={logout}
+              className="bg-red-600 px-3 py-1 rounded hover:bg-red-500 transition mt-2"
+            >
+              Logout
+            </button>
+          )}
         </nav>
       )}
     </header>
-)
+  );
 }
-

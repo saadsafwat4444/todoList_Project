@@ -1,34 +1,30 @@
-
 const jwt = require("jsonwebtoken");
 const User = require("../Models/User");
 const ApiError = require("../utils/ApiError");
 
-const generateToken=(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET,{ 
-        expiresIn: process.env.JWT_EXPIRE
-    })
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
 };
 // register
-exports.register=async(req,res,next)=>{
-    try{
+exports.register = async (req, res, next) => {
+  try {
+    const { name, email, password } = req.body;
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      throw new ApiError(400, "Email already exists");
+    }
 
-        const {name,email,password}=req.body;
-         const existingUser=await User.findOne({email});
-         if(existingUser){
-             throw new ApiError(400,"Email already exists");
-         }
-
-         const user=await User.create({name,email,password});
+    const user = await User.create({ name, email, password });
     res.status(201).json({
       success: true,
       token: generateToken(user._id),
     });
-
-    }
-    catch(error){
+  } catch (error) {
     next(error);
-    }
-}
+  }
+};
 
 // Login
 exports.login = async (req, res, next) => {

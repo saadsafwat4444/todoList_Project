@@ -24,20 +24,21 @@ export default function WeatherAlert({ currentWeather }) {
 
   const message = getWeatherMessage(currentWeather.weathercode);
 
-//   return (
-//     <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-4 rounded shadow-md">
-//       <p className="font-semibold">{message}</p>
-//       <p> 🌡 {currentWeather.temperature}°C | 🌬 {currentWeather.windspeed} km/h | {currentWeather.is_day ? "Day" : "Night"}</p>
-//     </div>
-//   );
+  //   return (
+  //     <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-4 rounded shadow-md">
+  //       <p className="font-semibold">{message}</p>
+  //       <p> 🌡 {currentWeather.temperature}°C | 🌬 {currentWeather.windspeed} km/h | {currentWeather.is_day ? "Day" : "Night"}</p>
+  //     </div>
+  //   );
 
-return (
-  <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-4 rounded shadow-md">
-    <p className="font-bold mb-2">تحذير طقس اليوم</p>
-    <p className="font-semibold">{message}</p>
-    <p>🌡 {currentWeather.temperature}°C | 🌬 {currentWeather.windspeed} km/h | {currentWeather.is_day ? "Day" : "Night"}</p>
-  </div>
-);
-
-
+  return (
+    <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-800 p-4 mb-4 rounded shadow-md">
+      <p className="font-bold mb-2">تحذير طقس اليوم</p>
+      <p className="font-semibold">{message}</p>
+      <p>
+        🌡 {currentWeather.temperature}°C | 🌬 {currentWeather.windspeed} km/h |{" "}
+        {currentWeather.is_day ? "Day" : "Night"}
+      </p>
+    </div>
+  );
 }

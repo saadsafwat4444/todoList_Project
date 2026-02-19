@@ -9,6 +9,6 @@ exports.getCurrentWeather = async (latitude, longitude) => {
     return res.data.current_weather;
   } catch (err) {
     console.error("Weather API Error:", err.message);
-    return null; 
+    return null;
   }
 };

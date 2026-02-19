@@ -1,8 +1,7 @@
-
 import { useNavigate } from "react-router-dom";
-export function HomeComponenet(){
-      const navigate = useNavigate();
-      return (
+export function HomeComponenet() {
+  const navigate = useNavigate();
+  return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-black to-gray-800 px-4">
       <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
         Welcome to Smart Tasks 🚀

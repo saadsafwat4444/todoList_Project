@@ -10,7 +10,12 @@ export function EditTaskModal({ task, isOpen, onClose, onTaskUpdated }) {
     reset,
     formState: { errors },
   } = useForm({
-    defaultValues: task || { title: "", desc: "", status: "todo", priority: "low" },
+    defaultValues: task || {
+      title: "",
+      desc: "",
+      status: "todo",
+      priority: "low",
+    },
     mode: "onTouched",
   });
 
@@ -58,29 +63,46 @@ export function EditTaskModal({ task, isOpen, onClose, onTaskUpdated }) {
             <label className="block font-medium">Title</label>
             <input
               type="text"
-              {...register("title", { required: "Title is required", minLength: { value: 3, message: "At least 3 characters" } })}
+              {...register("title", {
+                required: "Title is required",
+                minLength: { value: 3, message: "At least 3 characters" },
+              })}
               className={`w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 ${
-                errors.title ? "border-red-500 focus:ring-red-500" : "border-slate-300 focus:ring-blue-500"
+                errors.title
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-slate-300 focus:ring-blue-500"
               }`}
             />
-            {errors.title && <p className="text-red-500 text-sm">{errors.title.message}</p>}
+            {errors.title && (
+              <p className="text-red-500 text-sm">{errors.title.message}</p>
+            )}
           </div>
 
           <div>
             <label className="block font-medium">Description</label>
             <textarea
-              {...register("desc", { required: "Description is required", minLength: { value: 8, message: "At least 8 characters" } })}
+              {...register("desc", {
+                required: "Description is required",
+                minLength: { value: 8, message: "At least 8 characters" },
+              })}
               rows={3}
               className={`w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 ${
-                errors.desc ? "border-red-500 focus:ring-red-500" : "border-slate-300 focus:ring-blue-500"
+                errors.desc
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-slate-300 focus:ring-blue-500"
               }`}
             />
-            {errors.desc && <p className="text-red-500 text-sm">{errors.desc.message}</p>}
+            {errors.desc && (
+              <p className="text-red-500 text-sm">{errors.desc.message}</p>
+            )}
           </div>
 
           <div>
             <label className="block font-medium">Status</label>
-            <select {...register("status")} className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select
+              {...register("status")}
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
               <option value="todo">Todo</option>
               <option value="doing">Doing</option>
               <option value="done">Done</option>
@@ -89,7 +111,10 @@ export function EditTaskModal({ task, isOpen, onClose, onTaskUpdated }) {
 
           <div>
             <label className="block font-medium">Priority</label>
-            <select {...register("priority")} className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select
+              {...register("priority")}
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
