@@ -48,12 +48,12 @@ export function HeaderComponenet() {
       {/* Mobile Nav */}
       {isOpen && (
         <nav className="md:hidden bg-slate-700 px-4 pb-4 space-y-2">
-          <a href="#home" className="block hover:text-blue-400">
+         <Link to="/dashboard" className="block hover:text-blue-400">
             Home
-          </a>
-          <a href="#about" className="block hover:text-blue-400">
+          </Link>
+          <Link to="/dashboard/about" className="block hover:text-blue-400">
             About
-          </a>
+          </Link>
           {/* <a href="#services" className="block hover:text-blue-400">
             Services
           </a>
